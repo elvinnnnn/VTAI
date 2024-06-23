@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Vtai
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.5.
@@ -26,8 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# VTAI
+
 Front-End: The workflow of the front-end application is:
 
 Display a login page.
@@ -69,4 +67,3 @@ Chosen web service, we use ExpressJS internally.
 REST-fullness, the API should be “RESTful” or the URL scheme show-casing a well-thought approach to handling file uploads.
 Persistence, (i) an SQL-based database is recommended, (ii) we use Postgres internally, (iii) use of an SQL driver, (iv) we use Prisma internally.
  
->>>>>>> c6775bf122b85d98bc73a51aee4745c13a795f9b
