@@ -2,7 +2,6 @@ require('dotenv').config()
 
 const express = require("express");
 const app = express();
-const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 app.use(express.json())
@@ -41,5 +40,10 @@ const authenticateToken = (req, res, next) => {
 app.get('/songs', authenticateToken, (req, res) => {
     res.json(songs.filter(song => song.username === req.user.username));
 })
+
+// Upload video
+
+
+// Redirect to page that can display the video
 
 app.listen(3000);

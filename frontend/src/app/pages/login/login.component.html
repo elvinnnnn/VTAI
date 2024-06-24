@@ -1,25 +1,39 @@
-<mat-card>
+<app-navbar class="navbar" [isAuth]=false/>
+<main>
+  <mat-card>
     <mat-card-title>
-        Login
+      Login
     </mat-card-title>
     <mat-card-content>
-        <form>
-        <p>
-            <mat-form-field>
-            <input type="text" matInput placeholder="Username" formControlName="username">
-            </mat-form-field>
-        </p>
-
-        <p>
-            <mat-form-field>
-            <input type="password" matInput placeholder="Password" formControlName="password">
-            </mat-form-field>
-        </p>
-
-        <div class="button">
-            <button type="submit" mat-button>Login</button>
+      <!-- [] is property binding, () is event binding -->
+      <form [formGroup]="registerForm" (submit)="onSubmit()">
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              type="text" 
+              placeholder="Username" 
+              formControlName="username"
+              [class.invalid]="checkInvalid('username')"
+            >
+          </mat-form-field>
         </div>
-
-        </form>
+        <div>
+          <mat-form-field>
+            <input 
+              matInput 
+              type="password" 
+              placeholder="Password" 
+              formControlName="password"
+              [class.invalid]="checkInvalid('password')"
+            >
+          </mat-form-field>
+        </div>
+        <div class="button">
+          <button type="submit" class="primary" mat-button>Login</button>
+        </div>
+      </form>
     </mat-card-content>
-</mat-card>
+  </mat-card>
+  <a routerLink="/register">Create an Account</a>
+</main>
