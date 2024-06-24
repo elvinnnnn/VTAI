@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+RO&display=swap');
+
 .fill-space {
     flex: 1 1 auto;
+}
+
+.app-name {
+    font-family: "Playwrite RO", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
