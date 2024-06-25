@@ -13,6 +13,10 @@ export class UploadComponent {
   token = localStorage.getItem('accessToken');
   songs: any;
 
+  constructor() {
+    this.getSongs(this.token ?? '');
+  }
+
   getSongs(token: string) {
     fetch(SERVER_URL + '/songs', {
       method: 'GET',

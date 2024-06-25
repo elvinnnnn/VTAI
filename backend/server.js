@@ -3,7 +3,13 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 
+app.use(
+  cors({
+    origin: "http://127.0.0.1:4200",
+  })
+);
 app.use(express.json());
 
 const songs = [
