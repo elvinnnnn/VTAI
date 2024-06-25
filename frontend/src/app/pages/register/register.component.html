@@ -1,50 +1,50 @@
-<app-navbar class="navbar" [isAuth]=true/>
+<app-navbar class="navbar" [isAuth]="true" />
 <main>
-    <mat-card>
-      <mat-card-title>
-        Register
-      </mat-card-title>
-      <mat-card-content>
-        <!-- [] is property binding, () is event binding -->
-        <form [formGroup]="registerForm" (submit)="onSubmit()">
-          <div>
-            <mat-form-field>
-              <input 
-                matInput 
-                type="email" 
-                placeholder="Email" 
-                formControlName="email"
-                [class.invalid]="checkInvalid('email')"
-              >
-            </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field>
-              <input
-                matInput
-                type="text" 
-                placeholder="Username" 
-                formControlName="username"
-                [class.invalid]="checkInvalid('username')"
-              >
-            </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field>
-              <input 
-                matInput 
-                type="password" 
-                placeholder="Password" 
-                formControlName="password"
-                [class.invalid]="checkInvalid('password')"
-              >
-            </mat-form-field>
-          </div>
-          <div class="button">
-            <button type="submit" class="primary" mat-button>Register</button>
-          </div>
-        </form>
-      </mat-card-content>
-    </mat-card>
-    <a routerLink="/login">Already have an account?</a>
+  <mat-card>
+    <mat-card-title> Register </mat-card-title>
+    <mat-card-content>
+      <!-- [] is property binding, () is event binding -->
+      <form [formGroup]="registerForm" (submit)="onSubmit()">
+        <div>
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              type="email"
+              placeholder="Email"
+              formControlName="email"
+              [class.invalid]="checkInvalid('email')"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              type="text"
+              placeholder="Username"
+              formControlName="username"
+              [class.invalid]="checkInvalid('username')"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              type="password"
+              placeholder="Password"
+              formControlName="password"
+              [class.invalid]="checkInvalid('password')"
+            />
+          </mat-form-field>
+        </div>
+        <div class="button">
+          <button type="submit" class="primary" mat-stroked-button>
+            Register
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <a routerLink="/login">Already have an account?</a>
 </main>

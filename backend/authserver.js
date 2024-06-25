@@ -33,9 +33,9 @@ const addUser = async (user, res) => {
     const db = await getDB();
     db.users.push(user);
     await fs.writeFile("db.json", JSON.stringify(db));
-    res.status(201).send("Sucessfully Added User to DB");
+    res.sendStatus(201);
   } catch {
-    res.status(500).send("Error writing to DB");
+    res.sendStatus(500);
   }
 };
 
@@ -44,17 +44,17 @@ const addRefreshToken = async (rtoken, res) => {
     const db = await getDB();
     db.refreshTokens.push(rtoken);
     await fs.writeFile("db.json", JSON.stringify(db));
-    res.status(201).send("Successfully Added Refresh Token to DB");
+    res.sendStatus(201);
   } catch {
-    res.status(500).send("Error writing to DB");
+    res.sendStatus(500);
   }
 };
 
 app.get("/users", (req, res) => {
   fs.readFile("db.json", "utf-8", (err, data) => {
-    if (err) return res.status(500).send("Error reading DB");
+    if (err) return res.sendStatus(500);
     const db = JSON.parse(data);
-    res.status(200).json(db.users);
+    res.sendStatus(200).json(db.users);
   });
 });
 
@@ -62,10 +62,10 @@ app.get("/users", (req, res) => {
 app.post("/token", async (req, res) => {
   const refreshToken = req.body.token;
   const db = await getDB();
-  if (refreshToken == null) return res.status(401).send();
-  if (!db.refreshTokens.includes(refreshToken)) return res.status(403).send();
+  if (refreshToken == null) return res.sendStatus(401);
+  if (!db.refreshTokens.includes(refreshToken)) return res.sendStatus(403);
   jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
-    if (err) return res.status(403).send();
+    if (err) return res.sendStatus(403);
     const accessToken = generateAccessToken({ username: user.username });
     res.json({ accessToken: accessToken });
   });
@@ -81,7 +81,7 @@ app.post("/register", async (req, res) => {
     };
     addUser(user, res);
   } catch {
-    res.status(500).send();
+    res.sendStatus(500);
   }
 });
 
@@ -89,7 +89,7 @@ app.post("/login", async (req, res) => {
   // find a user where user.username = req.body.username
   const db = await getDB();
   const user = db.users.find((user) => user.username === req.body.username);
-  if (user == null) return res.status(400).send("Cannot Find User");
+  if (user == null) return res.sendStatus(400);
 
   try {
     if (await bcrypt.compare(req.body.password, user.password)) {
@@ -101,14 +101,21 @@ app.post("/login", async (req, res) => {
       res.send("Incorrect Credentials");
     }
   } catch {
-    res.status(500).send();
+    res.sendStatus(500);
   }
 });
 
 app.delete("/logout", async (req, res) => {
   const db = await getDB();
-  refreshTokens = db.refreshTokens.filter((token) => token !== req.body.token);
-  res.send(204).send();
+  try {
+    db.refreshTokens = db.refreshTokens.filter(
+      (token) => token !== req.body.token
+    );
+    await fs.writeFile("db.json", JSON.stringify(db));
+    res.sendStatus(204);
+  } catch {
+    res.sendStatus(500);
+  }
 });
 
 app.listen(4000);

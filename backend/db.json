@@ -1,1 +1,4 @@
-{"users":[{"email":"elvin","username":"elvin","password":"$2b$10$feqMCNHeTC7M91FJxN3zcuBsVnp4l0xvERuArkQNP90k7PJ6mmyR6"}],"refreshTokens":["eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVsdmluIiwidXNlcm5hbWUiOiJlbHZpbiIsInBhc3N3b3JkIjoiJDJiJDEwJGZlcU1DTkhlVEM3TTkxRkp4TjN6Y3VCc1ZucDRsMHh2RVJ1QXJrUU5QOTBrN1BKNm1teVI2IiwiaWF0IjoxNzE5MzI0Mzc0fQ.UpgDbkiGOuNCVs_tGHeuKGcxjnezjiHXlqLSeYdb2PM"]}
+{
+  "users": [],
+  "refreshTokens": []
+}

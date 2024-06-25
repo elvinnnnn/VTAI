@@ -1,23 +1,19 @@
 <mat-toolbar class="navbar">
-    <span class="app-name">
-        Vtai
-    </span>
-    <span class="fill-space"></span>
-    @if (!isAuth) {
-        <a routerLink="/upload">
-            <button mat-icon-button>
-                <mat-icon>upload_file</mat-icon>
-            </button>
-        </a>
-        <a routerLink="/player">
-            <button mat-icon-button>
-                <mat-icon>movie</mat-icon>
-            </button>
-        </a>
-        <a routerLink="/login">
-            <button mat-icon-button>
-                <mat-icon>logout</mat-icon>
-            </button>
-        </a>
-    }
-  </mat-toolbar>
+  <span class="app-name"> Vtai</span>
+  <span class="fill-space"></span>
+  @if (!isAuth) {
+  <a routerLink="/upload">
+    <button mat-icon-button>
+      <mat-icon>upload_file</mat-icon>
+    </button>
+  </a>
+  <a routerLink="/player">
+    <button mat-icon-button>
+      <mat-icon>movie</mat-icon>
+    </button>
+  </a>
+  <button mat-icon-button (click)="onLogout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+  }
+</mat-toolbar>

@@ -1,40 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+RO&display=swap");
+
 :host {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .mat-form-field {
-    width: 100%;    
-    min-width: 300px;
+  width: 100%;
+  min-width: 300px;
 }
 
 mat-card {
-    margin-top: 100px;
-    width: 400px;
-    height: 377px;
-    display: flex;
-    justify-content: center;
+  margin-top: 100px;
+  width: 400px;
+  height: 377px;
+  display: flex;
+  justify-content: center;
 }
 
 mat-card-title {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px 20px 0px;
+  font-family: "Playwrite RO", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 mat-card-content {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .button {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }

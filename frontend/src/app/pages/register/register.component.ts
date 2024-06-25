@@ -42,12 +42,11 @@ export class RegisterComponent {
     email: ['', [Validators.required, Validators.email]],
   });
 
-  checkInvalid(field: string): boolean {
+  checkInvalid(field: string) {
     return (
-      (this.registerForm.get(field)?.invalid &&
-        (this.registerForm.get(field)?.dirty ||
-          this.registerForm.get(field)?.touched)) ||
-      false
+      this.registerForm.get(field)?.invalid &&
+      (this.registerForm.get(field)?.dirty ||
+        this.registerForm.get(field)?.touched)
     );
   }
 
@@ -67,18 +66,24 @@ export class RegisterComponent {
   }
 
   onSubmit() {
-    const registerPayload: RegisterPayload = {
-      username: this.registerForm.value.username ?? '',
-      email: this.registerForm.value.email ?? '',
-      password: this.registerForm.value.password ?? '',
-    };
+    if (
+      !this.registerForm.get('username')?.invalid &&
+      !this.registerForm.get('password')?.invalid &&
+      !this.registerForm.get('email')?.invalid
+    ) {
+      const registerPayload: RegisterPayload = {
+        username: this.registerForm.value.username ?? '',
+        email: this.registerForm.value.email ?? '',
+        password: this.registerForm.value.password ?? '',
+      };
 
-    this.register(registerPayload)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      this.register(registerPayload)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }
 }

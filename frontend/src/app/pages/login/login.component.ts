@@ -39,8 +39,10 @@ export class LoginComponent {
   });
 
   checkInvalid(field: string) {
-    this.loginForm.get(field)?.invalid &&
-      (this.loginForm.get(field)?.dirty || this.loginForm.get(field)?.touched);
+    return (
+      this.loginForm.get(field)?.invalid &&
+      (this.loginForm.get(field)?.dirty || this.loginForm.get(field)?.touched)
+    );
   }
 
   async login(loginPayload: LoginPayload) {
@@ -59,18 +61,23 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
-    // Do the API call here
-    const loginPayload: LoginPayload = {
-      username: this.loginForm.value.username ?? '',
-      password: this.loginForm.value.password ?? '',
-    };
-    this.login(loginPayload)
-      .then((res) => {
-        localStorage.setItem('accessToken', res.accessToken);
-        localStorage.setItem('refreshToken', res.refreshToken);
-        this.router.navigateByUrl('/upload');
-      })
-      .catch((err) => console.log(err));
+    if (
+      !this.loginForm.get('username')?.invalid &&
+      !this.loginForm.get('password')?.invalid
+    ) {
+      console.log(this.loginForm.value);
+      // Do the API call here
+      const loginPayload: LoginPayload = {
+        username: this.loginForm.value.username ?? '',
+        password: this.loginForm.value.password ?? '',
+      };
+      this.login(loginPayload)
+        .then((res) => {
+          localStorage.setItem('accessToken', res.accessToken);
+          localStorage.setItem('refreshToken', res.refreshToken);
+          this.router.navigateByUrl('/upload');
+        })
+        .catch((err) => console.log(err));
+    }
   }
 }

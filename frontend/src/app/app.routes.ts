@@ -5,30 +5,29 @@ import { PlayerComponent } from './pages/player/player.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 export const routes: Routes = [
-    {
-        path: '',
-        redirectTo: '/register',
-        pathMatch: 'full'
-    },
-    {
-        path: 'login',
-        component: LoginComponent,
-        title: 'Login Page'
-    },
-    {
-        path: 'register',
-        component: RegisterComponent,
-        title: 'Register Page'
-    },
-    {
-        path: 'upload',
-        component: UploadComponent,
-        title: 'Upload Page'
-    },
-    {
-        path: 'player',
-        component: PlayerComponent,
-        title: 'Player Page'
-    }
-  ];
-
+  {
+    path: '',
+    redirectTo: '/register',
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    title: 'Login',
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    title: 'Register',
+  },
+  {
+    path: 'upload',
+    component: UploadComponent,
+    title: 'Video Upload',
+  },
+  {
+    path: 'player',
+    component: PlayerComponent,
+    title: 'Video Player',
+  },
+];
