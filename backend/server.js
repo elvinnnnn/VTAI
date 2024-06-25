@@ -12,12 +12,28 @@ const songs = [
     album: "11th Dimension",
     artist: "Ski Mask The Slump God",
     username: "elvin",
+    id: 1,
   },
   {
     song: "Alright",
     album: "To Pimp A Butterfly",
     artist: "Kendrick Lamar",
     username: "tuesday",
+    id: 2,
+  },
+  {
+    song: "Tuk Tuk",
+    album: "11th Dimension",
+    artist: "Ski Mask The Slump God",
+    username: "elvin",
+    id: 3,
+  },
+  {
+    song: "DNA.",
+    album: "DAMN.",
+    artist: "Kendrick Lamar",
+    username: "tuesday",
+    id: 4,
   },
 ];
 

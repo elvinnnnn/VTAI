@@ -1,4 +1,12 @@
 {
-  "users": [],
-  "refreshTokens": []
+  "users": [
+    {
+      "email": "elvin",
+      "username": "elvin",
+      "password": "$2b$10$R.NG5t33Y25caFhrzzECm.DS76Fs94nlvPyw1i6PHvV1uteQ13lJy"
+    }
+  ],
+  "refreshTokens": [
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVsdmluIiwidXNlcm5hbWUiOiJlbHZpbiIsInBhc3N3b3JkIjoiJDJiJDEwJFIuTkc1dDMzWTI1Y2FGaHJ6ekVDbS5EUzc2RnM5NG5sdlB5dzFpNlBIdlYxdXRlUTEzbEp5IiwiaWF0IjoxNzE5MzIzNTk4fQ.pv67JD2gBDlIvT0vHvZ8ewQwwYPS3A7V6mXpUj4Wyb8"
+  ]
 }

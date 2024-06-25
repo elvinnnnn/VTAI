@@ -1,3 +1,21 @@
+<app-navbar class="navbar" [isAuth]="false" />
 <main>
-    Upload Page
+  Upload Page
+  <button (onClick)="(getSongs)">GET SONGS</button>
+  <div>
+    @for (song of songs; track song.id) {
+    <div>
+      {{ song.song }}
+    </div>
+    <div>
+      {{ song.album }}
+    </div>
+    <div>
+      {{ song.artist }}
+    </div>
+    <div>
+      {{ song.username }}
+    </div>
+    }
+  </div>
 </main>

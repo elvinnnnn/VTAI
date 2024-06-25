@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -30,7 +30,8 @@ interface LoginPayload {
   ],
 })
 export class LoginComponent {
-  constructor(private fb: FormBuilder, private router: Router) {}
+  fb = inject(FormBuilder);
+  router = inject(Router);
 
   loginForm = this.fb.group({
     username: ['', Validators.required],
@@ -54,8 +55,7 @@ export class LoginComponent {
       throw new Error(`Login failed: ${errorDetail}`);
     }
     const loginData = await loginRes.json();
-    console.log(loginData);
-    return loginRes;
+    return loginData;
   }
 
   onSubmit() {
@@ -67,6 +67,8 @@ export class LoginComponent {
     };
     this.login(loginPayload)
       .then((res) => {
+        localStorage.setItem('accessToken', res.accessToken);
+        localStorage.setItem('refreshToken', res.refreshToken);
         this.router.navigateByUrl('/upload');
       })
       .catch((err) => console.log(err));

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -33,7 +33,8 @@ interface RegisterPayload {
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-  constructor(private fb: FormBuilder, private router: Router) {}
+  fb = inject(FormBuilder);
+  router = inject(Router);
 
   registerForm = this.fb.group({
     username: ['', Validators.required],
