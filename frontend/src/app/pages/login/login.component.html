@@ -1,32 +1,30 @@
-<app-navbar class="navbar" [isAuth]=true/>
+<app-navbar class="navbar" [isAuth]="true" />
 <main>
   <mat-card>
-    <mat-card-title>
-      Login
-    </mat-card-title>
+    <mat-card-title> Login </mat-card-title>
     <mat-card-content>
       <!-- [] is property binding, () is event binding -->
-      <form [formGroup]="registerForm" (submit)="onSubmit()">
+      <form [formGroup]="loginForm" (submit)="onSubmit()">
         <div>
           <mat-form-field>
             <input
               matInput
-              type="text" 
-              placeholder="Username" 
+              type="text"
+              placeholder="Username"
               formControlName="username"
               [class.invalid]="checkInvalid('username')"
-            >
+            />
           </mat-form-field>
         </div>
         <div>
           <mat-form-field>
-            <input 
-              matInput 
-              type="password" 
-              placeholder="Password" 
+            <input
+              matInput
+              type="password"
+              placeholder="Password"
               formControlName="password"
               [class.invalid]="checkInvalid('password')"
-            >
+            />
           </mat-form-field>
         </div>
         <div class="button">
